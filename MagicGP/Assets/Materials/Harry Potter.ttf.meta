@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: e68c2cc091889cc4a9545e300a0c430a
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Harry Potter (Russian Version of Gfdtk)
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: a0af5cef69e325149aab3aec3829e2b0, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
