@@ -21,6 +21,6 @@ public class MouseTrack : MonoBehaviour
         Vector3 worldMousePosition = _camera.ScreenToWorldPoint(screenMousePosition);
         Debug.Log(worldMousePosition);
         
-        transform.LookAt(worldMousePosition);
+        transform.LookAt(-screenMousePosition);
     }
 }
