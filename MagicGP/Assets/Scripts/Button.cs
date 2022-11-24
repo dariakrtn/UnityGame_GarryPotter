@@ -20,4 +20,9 @@ public class Button : MonoBehaviour
     {
         SceneManager.LoadScene(2);
     }
+    public void ButtonExit()
+    {
+        Application.Quit();
+
+    }
 }
