@@ -13,9 +13,13 @@ public class PathVisualiser : MonoBehaviour
     public float BrushSize = 1f;
     public RenderTexture RTexture;
 
-    private List<Vector3> wayPoints;
     [SerializeField] private string filePath = "diffindo.txt";
-    
+
+    public void Start()
+    {
+        
+        ReadPathFile();
+    }
 
     [ContextMenu("ReadPathFile")]
     public void ReadPathFile()
@@ -24,17 +28,17 @@ public class PathVisualiser : MonoBehaviour
         var path = JsonUtility.FromJson<Path>(file);
 
         //var wayPoints = JsonConvert.DeserializeObject<List<_>>(file);
-        
 
 
+        Debug.Log(path);
 
         for (int i = 0; i < path.waypoints.Length; i++)
         {
-            var wayPoint = wayPoints[i];
+            var wayPoint = path.waypoints[i];
             var go = Instantiate(Brush, wayPoint, Quaternion.identity, transform);
             go.transform.localScale = Vector3.one * BrushSize;
         }
-        Debug.Log("Done");
+        
         
     }
 

@@ -34,6 +34,13 @@ public class CreatePath : MonoBehaviour
 
             
             wayPoints.Add(worldMousePosition);
+            
+            for (int i = 0; i<wayPoints.Count; i++) 
+            {
+               //
+            }
+
+
 
             var path = new Path
             {
@@ -45,6 +52,8 @@ public class CreatePath : MonoBehaviour
 
         }
     }
+
+    
 
     [Serializable]
     public class Path
