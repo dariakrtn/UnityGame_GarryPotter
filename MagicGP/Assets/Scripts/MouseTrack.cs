@@ -22,7 +22,7 @@ public class MouseTrack : MonoBehaviour
         // Чтобы это исправить достаточно использовать глубину камеры для z
         screenMousePosition.z = _camera.depth * 5;
         Vector3 worldMousePosition = _camera.ScreenToWorldPoint(screenMousePosition);
-        Debug.Log($"screenMousePosition - {screenMousePosition}, worldMousePosition - {worldMousePosition}");
+        //Debug.Log($"screenMousePosition - {screenMousePosition}, worldMousePosition - {worldMousePosition}");
         
         transform.LookAt(-worldMousePosition);
     }

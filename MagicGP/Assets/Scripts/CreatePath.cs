@@ -1,21 +1,27 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Spalls : MonoBehaviour
+public class CreatePath : MonoBehaviour
 {
     private Camera _camera;
 
     public GameObject Brush;
-    public float BrushSize = 0.1f;
+    public float BrushSize = 1f;
     public RenderTexture RTexture;
-    private void Start()
+
+    [SerializeField] private List<Vector3> wayPoints;
+
+    void Start()
     {
         _camera = Camera.main;
     }
 
 
-    private void Update()
+    void Update()
     {
         if (Input.GetMouseButton(0))
         {
@@ -26,6 +32,23 @@ public class Spalls : MonoBehaviour
             var go = Instantiate(Brush, worldMousePosition, Quaternion.identity, transform);
             go.transform.localScale = Vector3.one * BrushSize;
 
+            
+            wayPoints.Add(worldMousePosition);
+
+            var path = new Path
+            {
+                waypoints = wayPoints.ToArray()
+            };
+
+            var file = JsonUtility.ToJson(path, true);
+            File.WriteAllText($"diffindo.txt", file);
+
         }
+    }
+
+    [Serializable]
+    public class Path
+    {
+        public Vector3[] waypoints;
     }
 }
