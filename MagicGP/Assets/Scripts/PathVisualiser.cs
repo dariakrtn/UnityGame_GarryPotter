@@ -11,13 +11,11 @@ public class PathVisualiser : MonoBehaviour
 {
     public GameObject Brush;
     public float BrushSize = 1f;
-    public RenderTexture RTexture;
 
     [SerializeField] private string filePath = "diffindo.txt";
 
     public void Start()
     {
-        
         ReadPathFile();
     }
 
@@ -27,11 +25,17 @@ public class PathVisualiser : MonoBehaviour
         string file = File.ReadAllText(filePath);
         var path = JsonUtility.FromJson<Path>(file);
 
-        //var wayPoints = JsonConvert.DeserializeObject<List<_>>(file);
-
-
         Debug.Log(path);
 
+        //List < Vector3 > points = new List < Vector3 >();
+        //List<Vector3> newPoints = new List<Vector3>();
+        //for (int i = 0; i < path.waypoints.Length; i++)
+        //{
+        //    var wayPoint = path.waypoints[i];
+        //    points.Add(wayPoint);
+        //}
+
+        //newPoints = DistancePoint(points);
         for (int i = 0; i < path.waypoints.Length; i++)
         {
             var wayPoint = path.waypoints[i];
@@ -41,6 +45,7 @@ public class PathVisualiser : MonoBehaviour
         
         
     }
+
 
     [Serializable]
     public class Path

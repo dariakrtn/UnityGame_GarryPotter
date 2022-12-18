@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//Скрипт для музыки на фоне
 public class BgSongScripts : MonoBehaviour
 {
 
@@ -29,7 +31,6 @@ public class BgSongScripts : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
-    // Update is called once per frame
     void Update()
     {
         
