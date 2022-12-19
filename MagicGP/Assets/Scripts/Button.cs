@@ -7,6 +7,7 @@ public class Button : MonoBehaviour
 {
     public GameObject Rules;
     public GameObject Spells;
+
     //Открытие сцены игры
     public void ButtonPlay()
     {
@@ -38,4 +39,5 @@ public class Button : MonoBehaviour
 
         Spells.SetActive(true);
     }
+
 }

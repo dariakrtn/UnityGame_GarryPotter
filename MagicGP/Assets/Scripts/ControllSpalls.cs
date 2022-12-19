@@ -99,7 +99,6 @@ public class ControllSpalls : MonoBehaviour
             Spell.SetActive(false);
             SpellNext.SetActive(true);
         }
-        Debug.Log($"Fail {f}, Good - {g}");
 
     }
 

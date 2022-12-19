@@ -20,6 +20,7 @@ public class CreatePath : MonoBehaviour
     [SerializeField] private List<Vector3> wayPoints ;
 
 
+
     void Start()
     {
         _camera = Camera.main;
@@ -47,7 +48,7 @@ public class CreatePath : MonoBehaviour
         };
 
         var file = JsonUtility.ToJson(path, true);
-        File.WriteAllText($"incendio.txt", file);
+        File.WriteAllText($"expectopatronum.txt", file);
 
 
     }
