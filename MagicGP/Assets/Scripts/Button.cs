@@ -8,31 +8,33 @@ public class Button : MonoBehaviour
     public GameObject Rules;
     public GameObject Spells;
 
-    //Открытие сцены игры
+    //Opening the game scene
     public void ButtonPlay()
     {
         SceneManager.LoadScene(1);
 
     }
 
-    //Открытия главной сцены
+    //Opening of the main scene
     public void ButtonBack()
     {
         SceneManager.LoadScene(0);
     }
 
-    //Открытия сцены настроек
+    //Opening the Settings scene
     public void ButtonSetting()
     {
         SceneManager.LoadScene(2);
     }
 
-    //Закрытие приложения
+    //Closing the application
     public void ButtonExit()
     {
         Application.Quit();
 
     }
+
+    //Game start button lets start
     public void onClickStart()
     {
         Rules.SetActive(false);
