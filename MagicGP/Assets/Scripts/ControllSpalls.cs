@@ -14,7 +14,10 @@ public class ControllSpalls : MonoBehaviour
 
     public List<Vector3> pathPoints;
     public List<Vector3> mousePoints;
-    [SerializeField] private string filePath = "diffindo.txt";
+    [SerializeField] private string filePath;
+
+    public GameObject Spell;
+    public GameObject SpellNext;
 
 
     void Start()
@@ -60,36 +63,41 @@ public class ControllSpalls : MonoBehaviour
 
 
 
-// Расстояние от p до прямой ab
-public float Distance_to_line(Vector3 a, Vector3 b, Vector3 p)
-{
-    Vector3 ab = b - a;
-    Vector3 ap = p - a;
-    Vector3 ab_cross_ap = Vector3.Cross(ab, ap); 
-    return (float)Math.Sqrt( Vector3.Dot(ab_cross_ap, ab_cross_ap) / Vector3.Dot(ab, ab));
+    // Расстояние от точки мыши до прямой паттерна
+    public float Distance_to_line(Vector3 p1, Vector3 p2, Vector3 m)
+    {
+        Vector3 p1p2 = p2 - p1;
+        Vector3 p1m = m - p1;
+        Vector3 p1p2_cross_p1m = Vector3.Cross(p1p2, p1m); 
+        return (float)Math.Sqrt( Vector3.Dot(p1p2_cross_p1m, p1p2_cross_p1m) / Vector3.Dot(p1p2, p1p2));
 
-}
+    }
 
-void ConSpall(List<Vector3> path, List<Vector3> mouse)
+    void ConSpall(List<Vector3> path, List<Vector3> mouse) 
     {
         int f = 0;
         int g = 0;
         for(int i = 1; i<path.Count; i++)
         {
-            for (int k = 0; k < mouse.Count; k++)
-            {
-                float distance = Distance_to_line(path[i-1], path[i], mouse[k]);
+              for (int k = 0; k < mouse.Count; k++)
+              {
+                   float distance = Distance_to_line(path[i-1], path[i], mouse[k]);
 
-                if (distance >= 20f)
-                {
-                    f++;
-
-                }
-                else
-                {
+                   if (distance >= 50f)
+                        {
+                            f++;
+                        }
+                   else
+                        {
                     g++;
-                }
-            }
+                        }
+              }
+        }
+        if ( g > f && g > 1500f)
+        {
+
+            Spell.SetActive(false);
+            SpellNext.SetActive(true);
         }
         Debug.Log($"Fail {f}, Good - {g}");
 

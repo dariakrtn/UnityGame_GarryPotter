@@ -47,7 +47,7 @@ public class CreatePath : MonoBehaviour
         };
 
         var file = JsonUtility.ToJson(path, true);
-        File.WriteAllText($"diffindo.txt", file);
+        File.WriteAllText($"incendio.txt", file);
 
 
     }

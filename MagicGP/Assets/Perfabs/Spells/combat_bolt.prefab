@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1378439172222805897
+--- !u!1 &6666721451210498721
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,26 +8,26 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1378439172222805902}
-  - component: {fileID: 1378439172222805900}
-  - component: {fileID: 1378439172222805903}
-  - component: {fileID: 1378439172222805891}
-  - component: {fileID: 1378439172222805888}
+  - component: {fileID: 6666721451210498726}
+  - component: {fileID: 6666721451210498724}
+  - component: {fileID: 6666721451210498727}
+  - component: {fileID: 6666721451210498731}
+  - component: {fileID: 6666721451210498728}
   m_Layer: 5
   m_Name: combat_bolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1378439172222805902
+  m_IsActive: 0
+--- !u!224 &6666721451210498726
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1378439172222805897}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 6666721451210498721}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -37,24 +37,24 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 960, y: 540}
+  m_AnchoredPosition: {x: 349.99994, y: 350}
   m_SizeDelta: {x: 700, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &1378439172222805900
+--- !u!222 &6666721451210498724
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1378439172222805897}
+  m_GameObject: {fileID: 6666721451210498721}
   m_CullTransparentMesh: 1
---- !u!114 &1378439172222805903
+--- !u!114 &6666721451210498727
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1378439172222805897}
+  m_GameObject: {fileID: 6666721451210498721}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -78,13 +78,13 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1378439172222805891
+--- !u!114 &6666721451210498731
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1378439172222805897}
+  m_GameObject: {fileID: 6666721451210498721}
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 127c277a875b9774e9ee325218c5cfa0, type: 3}
@@ -92,21 +92,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Brush: {fileID: 303319335875823435, guid: 22b5319bd957c8d4fa2189fa77ba3668, type: 3}
   BrushSize: 1
-  RTexture: {fileID: 0}
   wayPoints: []
---- !u!114 &1378439172222805888
+--- !u!114 &6666721451210498728
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1378439172222805897}
+  m_GameObject: {fileID: 6666721451210498721}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea0f2c086d3bec64293c0d69ff5eb887, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Brush: {fileID: 0}
+  Brush: {fileID: 303319335875823435, guid: 22b5319bd957c8d4fa2189fa77ba3668, type: 3}
   BrushSize: 1
-  RTexture: {fileID: 0}
-  filePath: diffindo.txt
+  filePath: combat_bolt.txt
