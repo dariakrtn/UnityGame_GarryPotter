@@ -6,6 +6,8 @@ using System.Net;
 using Unity.VisualScripting;
 using UnityEngine;
 
+
+//Script for visualizing spell patterns on stage
 public class PathVisualiser : MonoBehaviour
 {
     public GameObject Brush;
@@ -24,15 +26,12 @@ public class PathVisualiser : MonoBehaviour
         string file = File.ReadAllText(filePath);
         var path = JsonUtility.FromJson<Path>(file);
 
-        
         for (int i = 0; i < path.waypoints.Length; i++)
         {
             var wayPoint = path.waypoints[i];
             var go = Instantiate(Brush, wayPoint, Quaternion.identity, transform);
             go.transform.localScale = Vector3.one * BrushSize;
-        }
-        
-        
+        }      
     }
 
 

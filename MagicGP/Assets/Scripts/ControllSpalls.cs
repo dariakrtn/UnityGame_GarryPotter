@@ -7,9 +7,10 @@ using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
 
+
+//Script for checking the correctness of the spell execution
 public class ControllSpalls : MonoBehaviour
 {
-
     private Camera _camera;
 
     public List<Vector3> pathPoints;
@@ -26,8 +27,6 @@ public class ControllSpalls : MonoBehaviour
         pathPoints = ReadPathPoints();
     }
 
-
-    //[ContextMenu("ReadPathFile")]
     public List<Vector3> ReadPathPoints()
     {
         string file = File.ReadAllText(filePath);
@@ -61,9 +60,7 @@ public class ControllSpalls : MonoBehaviour
 
     }
 
-
-
-    // Расстояние от точки мыши до прямой паттерна
+    // Distance from the mouse point to the straight line of the pattern
     public float Distance_to_line(Vector3 p1, Vector3 p2, Vector3 m)
     {
         Vector3 p1p2 = p2 - p1;
@@ -75,8 +72,8 @@ public class ControllSpalls : MonoBehaviour
 
     void ConSpall(List<Vector3> path, List<Vector3> mouse) 
     {
-        int f = 0;
-        int g = 0;
+        int fail = 0;
+        int good = 0;
         for(int i = 1; i<path.Count; i++)
         {
               for (int k = 0; k < mouse.Count; k++)
@@ -85,15 +82,15 @@ public class ControllSpalls : MonoBehaviour
 
                    if (distance >= 50f)
                         {
-                            f++;
+                            fail++;
                         }
                    else
                         {
-                    g++;
+                            good++;
                         }
               }
         }
-        if ( g > f && g > 1500f)
+        if ( good > fail && good > 1500f)
         {
 
             Spell.SetActive(false);
