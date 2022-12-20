@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using UnityEngine;
 
-//Script for tracking the magic wand behind the mouse
+//Скрипт для трекинга волшебной палочки за мышью
 public class MouseTrack : MonoBehaviour
 {
     private Camera _camera;

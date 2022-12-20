@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Script for music in the background
+
+//Скрипт для музыки на фоне
 public class BgSongScripts : MonoBehaviour
 {
 
@@ -10,6 +11,10 @@ public class BgSongScripts : MonoBehaviour
     public static BgSongScripts Instance
     {
         get { return instance; }
+    }
+    void Start()
+    {
+        
     }
    
     private void Awake()
@@ -24,5 +29,10 @@ public class BgSongScripts : MonoBehaviour
             instance = this;
         }
         DontDestroyOnLoad(this.gameObject);
+    }
+
+    void Update()
+    {
+        
     }
 }

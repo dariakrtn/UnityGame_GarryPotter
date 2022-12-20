@@ -10,8 +10,6 @@ using System.Drawing;
 using UnityEngine.UIElements;
 using System.Reflection;
 
-
-//Script for creating spell patterns
 public class CreatePath : MonoBehaviour
 {
     private Camera _camera;

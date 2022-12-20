@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Threading;
 
 
-// Script for visualizing spells behind a wand (mouse)
+// Скрипт для визуализации заклинаний за палочкой(мышью)
 public class Spalls : MonoBehaviour
 {
     private Camera _camera;
