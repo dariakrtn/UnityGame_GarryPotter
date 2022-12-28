@@ -74,7 +74,7 @@ public class ControllSpalls : MonoBehaviour
 
     }
 
-    public float Distanse_two_point(Vector3 p1, Vector3 p2)
+    public float Distance_two_point(Vector3 p1, Vector3 p2)
     {
         return (float)Math.Sqrt(Math.Pow(p2[0] - p1[0], 2) + Math.Pow(p2[1] - p1[1], 2) + Math.Pow(p2[2] - p1[2], 2));
 
@@ -89,7 +89,7 @@ public class ControllSpalls : MonoBehaviour
         {
             for (int k = 0; k < mouse.Count; k += 50)
             {
-                float first_point = Distanse_two_point(path[0], mouse[0]);
+                float first_point = Distance_two_point(path[0], mouse[0]);
                 if (first_point <= 3f )
                 {
                     float distance = Distance_to_line(path[i - 1], path[i], mouse[k]);
@@ -103,8 +103,8 @@ public class ControllSpalls : MonoBehaviour
                     }
                     if (good > fail)
                     {
-                        float dk = Distanse_two_point(path[path.Count - 1], mouse[mouse.Count - 1]);
-                        if (dk <= 3f)
+                        float last_point = Distance_two_point(path[path.Count - 1], mouse[mouse.Count - 1]);
+                        if (last_point <= 3f)
                         {
                             Spell.SetActive(false);
                             SpellNext.SetActive(true);
