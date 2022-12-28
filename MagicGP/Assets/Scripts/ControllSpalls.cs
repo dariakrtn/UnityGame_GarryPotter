@@ -1,14 +1,16 @@
 using Newtonsoft.Json;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
+using static ControllSpalls;
 
 
-//Script for checking the correctness of the spell execution
 public class ControllSpalls : MonoBehaviour
 {
     private Camera _camera;
@@ -25,9 +27,12 @@ public class ControllSpalls : MonoBehaviour
     {
         _camera = Camera.main;
         pathPoints = ReadPathPoints();
+
     }
 
-    public List<Vector3> ReadPathPoints()
+
+
+        public List<Vector3> ReadPathPoints()
     {
         string file = File.ReadAllText(filePath);
         var path = JsonUtility.FromJson<Path>(file);
@@ -60,7 +65,6 @@ public class ControllSpalls : MonoBehaviour
 
     }
 
-    // Distance from the mouse point to the straight line of the pattern
     public float Distance_to_line(Vector3 p1, Vector3 p2, Vector3 m)
     {
         Vector3 p1p2 = p2 - p1;
@@ -70,33 +74,48 @@ public class ControllSpalls : MonoBehaviour
 
     }
 
-    void ConSpall(List<Vector3> path, List<Vector3> mouse) 
+    public float Distanse_two_point(Vector3 p1, Vector3 p2)
+    {
+        return (float)Math.Sqrt(Math.Pow(p2[0] - p1[0], 2) + Math.Pow(p2[1] - p1[1], 2) + Math.Pow(p2[2] - p1[2], 2));
+
+    }
+
+    void ConSpall(List<Vector3> path, List<Vector3> mouse)
     {
         int fail = 0;
         int good = 0;
-        for(int i = 1; i<path.Count; i++)
+        
+        for (int i = 1; i < path.Count; i++)
         {
-              for (int k = 0; k < mouse.Count; k++)
-              {
-                   float distance = Distance_to_line(path[i-1], path[i], mouse[k]);
-
-                   if (distance >= 50f)
+            for (int k = 0; k < mouse.Count; k += 50)
+            {
+                float first_point = Distanse_two_point(path[0], mouse[0]);
+                if (first_point <= 3f )
+                {
+                    float distance = Distance_to_line(path[i - 1], path[i], mouse[k]);
+                    if (distance >= 15f) 
+                    { 
+                        fail++; 
+                    }
+                    else 
+                    { 
+                        good++; 
+                    }
+                    if (good > fail)
+                    {
+                        float dk = Distanse_two_point(path[path.Count - 1], mouse[mouse.Count - 1]);
+                        if (dk <= 3f)
                         {
-                            fail++;
+                            Spell.SetActive(false);
+                            SpellNext.SetActive(true);
                         }
-                   else
-                        {
-                            good++;
-                        }
-              }
-        }
-        if ( good > fail && good > 1500f)
-        {
-
-            Spell.SetActive(false);
-            SpellNext.SetActive(true);
-        }
-
+                        else  { mouse.Clear(); }
+                    }
+                    else  {  mouse.Clear(); }
+                }
+                else { mouse.Clear(); }
+            }
+        } 
     }
 
 [Serializable]

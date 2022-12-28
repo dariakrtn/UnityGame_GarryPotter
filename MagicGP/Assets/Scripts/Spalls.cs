@@ -11,7 +11,6 @@ public class Spalls : MonoBehaviour
 
     public GameObject Brush;
     public float BrushSize =1f;
-    public RenderTexture RTexture;
 
     private void Start()
     {

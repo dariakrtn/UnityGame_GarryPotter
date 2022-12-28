@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using UnityEngine;
 
-//Script for tracking the magic wand behind the mouse
 public class MouseTrack : MonoBehaviour
 {
     private Camera _camera;
